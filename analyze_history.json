@@ -1,0 +1,354 @@
+[
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "INSERT INTO hotel (hotel_id, name, address, city, state, zip_code) VALUES (210, 'shivraj', 'gulabnagar', 'pune', 'maharashtra', '43783');"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE computer_engineering_department (department_id INTEGER PRIMARY KEY, department_name TEXT, location TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "computer_engineering_department\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "hotel"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "create table for hotel"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "create table for hotel"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "INSERT INTO hotel (hotel_id, name, address, city, state, zip_code) VALUES (2341, 'shivraj', 'gulabnagar', 'pune', 'maharashtra', '32342');"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "INSERT INTO hotel (hotel_id, name, address, city, state, zip_code) VALUES (2341, 'shivraj', 'gulabnagar', 'pune', 'maharashtra', '32342');"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "INSERT INTO hotel (hotel_id, name, address, city, state, zip_code) VALUES (2342, 'nagesh', 'shivajinagar', 'mumbai', 'maharashtra', '32342');"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE book (book_id INTEGER PRIMARY KEY, title TEXT, author TEXT, isbn TEXT, publisher TEXT, publication_year INTEGER);"
+  },
+  {
+    "role": "model",
+    "content": "book\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE book (book_id INTEGER PRIMARY KEY, title TEXT, author TEXT, isbn TEXT, publisher TEXT, publication_year INTEGER);"
+  },
+  {
+    "role": "model",
+    "content": "book\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (hotel_id INTEGER PRIMARY KEY, name TEXT, address TEXT, city TEXT, state TEXT, zip_code TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "hotel\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE depart (id INTEGER PRIMARY KEY, name TEXT, address TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "depart\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE depart (id INTEGER PRIMARY KEY, name TEXT, address TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "depart\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE department (id INTEGER PRIMARY KEY, name TEXT, address TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "department\n"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE department (id INTEGER PRIMARY KEY, name TEXT, address TEXT);"
+  },
+  {
+    "role": "model",
+    "content": "department\n"
+  },
+  {
+    "role": "user",
+    "content": "INSERT INTO department (id, name, address) VALUES (101, 'computer engineering', 'gulabnagar');"
+  },
+  {
+    "role": "model",
+    "content": "department\n"
+  },
+  {
+    "role": "user",
+    "content": "INVALID REQUEST"
+  },
+  {
+    "role": "model",
+    "content": "INVALID REQUEST\n"
+  },
+  {
+    "role": "user",
+    "content": "DELETE FROM department WHERE id = 101;"
+  },
+  {
+    "role": "model",
+    "content": "department\n"
+  },
+  {
+    "role": "user",
+    "content": "DELETE FROM department WHERE id = 101;"
+  },
+  {
+    "role": "model",
+    "content": "department\n"
+  }
+]
