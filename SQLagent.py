@@ -88,7 +88,7 @@ class SQLagent:
         # # print(self.table_name)
         # self.table_name=st.text_input("Enter Table name:")
         if( not self.o.table_exists(self.table_name)):
-            print("not table found")
+            st.write("not table found")
             return
         # if(self.is_query_executed==False):
             
