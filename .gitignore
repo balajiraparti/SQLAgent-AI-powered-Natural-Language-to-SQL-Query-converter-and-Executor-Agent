@@ -1,5 +1,5 @@
 .env
 Sqlagent
-._pycahce_
-.tempCodeRunnerFile
-.ne
+__pycache__/
+tempCodeRunnerFile.py
+ne.py
