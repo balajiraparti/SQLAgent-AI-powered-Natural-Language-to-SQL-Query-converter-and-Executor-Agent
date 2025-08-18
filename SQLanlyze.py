@@ -4,16 +4,16 @@ from google.genai import types
 import os
 from dotenv import load_dotenv
 load_dotenv()
-k=os.getenv("API_KEY")
-
+# k=os.getenv("API_KEY")
+import streamlit as st
 client = genai.Client(api_key=k)
 from google import genai
 import os
 from dotenv import load_dotenv
 import json
 
-load_dotenv()
-k = os.getenv("API_KEY")
+# load_dotenv()
+k = st.secrets["API_KEY"]
 
 HISTORY_FILE = "analyze_history.json"
 
