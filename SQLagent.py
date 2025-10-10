@@ -81,7 +81,8 @@ class SQLagent:
 
     def display_users(self):
         self.table_name=st.session_state.display
-        if self.table_name =="":
+        print(self.table_name)
+        if self.table_name == "":
              st.write("Enter table name to display:")
              return
         # k=st.session_state.query
