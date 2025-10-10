@@ -4,7 +4,7 @@ from google.genai import types
 import os
 from dotenv import load_dotenv
 load_dotenv()
-k = st.secrets["API_KEY"]
+
 import streamlit as st
 # k=os.getenv("API_KEY")
 k = st.secrets["API_KEY"]
