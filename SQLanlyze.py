@@ -5,8 +5,9 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 # k=os.getenv("API_KEY")
-import streamlit as st
 k = st.secrets["API_KEY"]
+import streamlit as st
+
 client = genai.Client(api_key=k)
 from google import genai
 import os
@@ -30,10 +31,24 @@ def save_history(history):
         json.dump(history, f, indent=2)
 
 def transform_history_for_gemini(history):
-    return [
-        {"role": msg["role"], "parts": [{"text": msg["content"]}]}
-        for msg in history
-    ]
+    valid = []
+    for h in history:
+        # Safely get and convert content to string
+        text = h.get("content")
+        if text is None:
+            continue  # skip None values entirely
+
+        # Ensure it’s a string before stripping
+        if not isinstance(text, str):
+            text = str(text)
+
+        text = text.strip()
+        if text:  # Only include non-empty text
+            valid.append({
+                "role": h.get("role", "user"),
+                "parts": [{"text": text}]
+            })
+    return valid
 
 history = load_history()
 client = genai.Client(api_key=k)
@@ -43,7 +58,7 @@ def analyzeQuery(input):
         history.append({"role": "user", "content": input})
 
         response = client.models.generate_content(
-                model="gemini-1.5-flash",
+                model="gemini-2.5-flash",
                 config=types.GenerateContentConfig(
                     system_instruction="""You are a table name identifier for SQL-related natural language queries.
 
@@ -66,7 +81,7 @@ Only output the table name(s) or INVALID REQUEST.
 If the request is not related to database operations, respond with INVALID REQUEST.
 
 Never output anything except the table name(s) or INVALID REQUEST. """),
-                contents=transform_history_for_gemini(history)
+                contents= transform_history_for_gemini(history)
             )
     
         history.append({"role": "model", "content": response.text})

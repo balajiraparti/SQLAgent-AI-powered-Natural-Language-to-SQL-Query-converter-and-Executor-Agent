@@ -1,0 +1,34 @@
+[
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    name TEXT NOT NULL,\n    address TEXT,\n    city TEXT\n);"
+  },
+  {
+    "role": "model",
+    "content": "hotel"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE hotel (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    name TEXT NOT NULL,\n    address TEXT,\n    city TEXT\n);"
+  },
+  {
+    "role": "model",
+    "content": "hotel"
+  },
+  {
+    "role": "user",
+    "content": "CREATE TABLE seminar (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    title TEXT NOT NULL,\n    event_date DATE,\n    location TEXT\n);"
+  },
+  {
+    "role": "model",
+    "content": "seminar"
+  },
+  {
+    "role": "user",
+    "content": "INSERT INTO seminar (id, title, event_date, location) VALUES (1, 'linux kernel wrokshop', '2025-06-24', 'pune');"
+  },
+  {
+    "role": "model",
+    "content": "seminar"
+  }
+]

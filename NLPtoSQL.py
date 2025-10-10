@@ -4,7 +4,7 @@ from google.genai import types
 import os
 from dotenv import load_dotenv
 import streamlit as st
-# load_dotenv()
+load_dotenv()
 # k=os.getenv("API_KEY")
 k = st.secrets["API_KEY"]
 client = genai.Client(api_key=k)
@@ -31,10 +31,24 @@ def save_history(history):
         json.dump(history, f, indent=2)
 
 def transform_history_for_gemini(history):
-    return [
-        {"role": msg["role"], "parts": [{"text": msg["content"]}]}
-        for msg in history
-    ]
+    valid = []
+    for h in history:
+        # Safely get and convert content to string
+        text = h.get("content")
+        if text is None:
+            continue  # skip None values entirely
+
+        # Ensure it’s a string before stripping
+        if not isinstance(text, str):
+            text = str(text)
+
+        text = text.strip()
+        if text:  # Only include non-empty text
+            valid.append({
+                "role": h.get("role", "user"),
+                "parts": [{"text": text}]
+            })
+    return valid
 
 history = load_history()
 client = genai.Client(api_key=k)
@@ -42,9 +56,10 @@ client = genai.Client(api_key=k)
 def generateQuery(input):
    
         history.append({"role": "user", "content": input})
-
+        for i in client.models.list():
+            print(i)
         response = client.models.generate_content(
-                model="gemini-1.5-flash",
+                model="gemini-2.5-flash",
                 config=types.GenerateContentConfig(
                     system_instruction="""You are an expert SQL generator.
         Your job is to convert user requests written in natural language into accurate SQL queries for a SQLite database.

@@ -80,7 +80,7 @@ class SQLagent:
 
 
     def display_users(self):
-        self.table_name=st.session_state.query
+        self.table_name=st.session_state.display
         # k=st.session_state.query
         # self.table_name=s.analyzeQuery(k)
         # print(self.table_name)
@@ -123,17 +123,22 @@ def main():
     sqlagent=SQLagent()
     
     user_input = st.text_input("Enter your query:", key="user_input")
-
+    if "query" not in st.session_state:
+        st.session_state.query = ""
+    if "display" not in st.session_state:
+        st.session_state.display = ""
     if user_input:
-        st.session_state.query=user_input
-        print(st.session_state.query)
-        sqlagent.execute_query()
+        if st.button("Execute query"):
+            st.session_state.query=user_input
+            print(st.session_state.query)
+            sqlagent.execute_query()
 
-    user_input=st.text_input("Enter table name to display:",key="display")
-    if user_input:
-        st.session_state.query=user_input
-        print(st.session_state.query)    
-        sqlagent.display_users()
+    display_input=st.text_input("Enter table name to display:",key="display_key")
+    if display_input:
+        if st.button("display table"):
+            st.session_state.display=display_input
+            print(st.session_state.display)    
+            sqlagent.display_users()
     # print(sqlagent.o.table_names)
     # print(sqlagent.o.table_exists("hotel"))
     # sqlagent.o.display_tables()
