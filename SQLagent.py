@@ -81,6 +81,8 @@ class SQLagent:
 
     def display_users(self):
         self.table_name=st.session_state.display
+        if st.session_state.display=="":
+             st.write("Enter table name to display:")
         # k=st.session_state.query
         # self.table_name=s.analyzeQuery(k)
         # print(self.table_name)
@@ -139,7 +141,7 @@ def main():
         # if st.button("display table"):
             st.session_state.display=display_input
             print(st.session_state.display) 
-            
+
     if st.button("display table"):
             sqlagent.display_users()
     # print(sqlagent.o.table_names)
