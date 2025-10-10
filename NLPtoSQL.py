@@ -71,8 +71,7 @@ def generateQuery(input):
 
         Only output valid SQL for the described request.
 
-        If the input is ambiguous, incomplete, or does not map to a valid SQL query, respond with only:
-        INVALID REQUEST
+     
 
         Do not execute, explain, or comment on the query.
 
