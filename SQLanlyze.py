@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 import json
 load_dotenv()
-
+import streamlit as st
 
 # k=os.getenv("API_KEY")
 k = st.secrets["API_KEY"]

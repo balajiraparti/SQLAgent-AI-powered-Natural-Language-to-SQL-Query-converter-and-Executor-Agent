@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 load_dotenv()
-k=os.getenv("API_KEY")
+# k=os.getenv("API_KEY")
 k = st.secrets["API_KEY"]
 # client = genai.Client(api_key=k)
 from google import genai
