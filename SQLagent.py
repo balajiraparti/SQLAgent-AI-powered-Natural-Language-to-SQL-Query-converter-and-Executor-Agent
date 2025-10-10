@@ -128,16 +128,19 @@ def main():
     if "display" not in st.session_state:
         st.session_state.display = ""
     if user_input:
-        if st.button("Execute query"):
+        # if st.button("Execute query"):
             st.session_state.query=user_input
             print(st.session_state.query)
-            sqlagent.execute_query()
-
+            # sqlagent.execute_query()
+    if st.button("Execute query"):
+           sqlagent.execute_query()
     display_input=st.text_input("Enter table name to display:",key="display_key")
     if display_input:
-        if st.button("display table"):
+        # if st.button("display table"):
             st.session_state.display=display_input
-            print(st.session_state.display)    
+            print(st.session_state.display) 
+            
+    if st.button("display table"):
             sqlagent.display_users()
     # print(sqlagent.o.table_names)
     # print(sqlagent.o.table_exists("hotel"))
