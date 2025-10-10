@@ -94,6 +94,7 @@ class SQLagent:
         if( not self.o.table_exists(self.table_name)):
             st.write("not table found")
             return
+        print(self.o.display_tables)
         # if(self.is_query_executed==False):
             
         #     self.table_name=self.get_last_table_name_from_json()
