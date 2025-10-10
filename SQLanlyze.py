@@ -3,18 +3,16 @@ import asyncio
 from google.genai import types
 import os
 from dotenv import load_dotenv
+import json
 load_dotenv()
 
-import streamlit as st
-# k=os.getenv("API_KEY")
-k = st.secrets["API_KEY"]
+
+k=os.getenv("API_KEY")
+# k = st.secrets["API_KEY"]
 
 
 client = genai.Client(api_key=k)
-from google import genai
-import os
-from dotenv import load_dotenv
-import json
+
 
 # load_dotenv()
 
@@ -56,7 +54,7 @@ history = load_history()
 client = genai.Client(api_key=k)
 
 def analyzeQuery(input):
-   
+        print(input)
         history.append({"role": "user", "content": input})
 
         response = client.models.generate_content(
