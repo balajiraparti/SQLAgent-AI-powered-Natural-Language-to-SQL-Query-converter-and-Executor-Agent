@@ -7,8 +7,8 @@ import json
 load_dotenv()
 
 
-k=os.getenv("API_KEY")
-# k = st.secrets["API_KEY"]
+# k=os.getenv("API_KEY")
+k = st.secrets["API_KEY"]
 
 
 client = genai.Client(api_key=k)
