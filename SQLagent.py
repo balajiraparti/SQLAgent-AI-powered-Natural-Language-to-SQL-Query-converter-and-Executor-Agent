@@ -83,6 +83,7 @@ class SQLagent:
         self.table_name=st.session_state.display
         if st.session_state.display=="":
              st.write("Enter table name to display:")
+             return
         # k=st.session_state.query
         # self.table_name=s.analyzeQuery(k)
         # print(self.table_name)
@@ -136,6 +137,7 @@ def main():
             # sqlagent.execute_query()
     if st.button("Execute query"):
            sqlagent.execute_query()
+           
     display_input=st.text_input("Enter table name to display:",key="display_key")
     if display_input:
         # if st.button("display table"):
