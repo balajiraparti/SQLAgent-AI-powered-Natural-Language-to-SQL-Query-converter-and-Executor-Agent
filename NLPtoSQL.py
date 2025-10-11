@@ -5,8 +5,8 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 load_dotenv()
-# k=os.getenv("API_KEY")
-k = st.secrets["API_KEY"]
+k=os.getenv("API_KEY")
+# k = st.secrets["API_KEY"]
 # client = genai.Client(api_key=k)
 from google import genai
 import os
@@ -68,11 +68,8 @@ Your task is to convert user requests written in natural language into accurate 
 - Only output valid SQL queries — no explanations, comments, markdown, or extra text.
 - Do not include the word "sql" in the output.
 - Do not execute, explain, or simulate queries.
-- If the request is unrelated to database operations, output only:
-  INVALID REQUEST
-- If the request is incomplete or unclear, output only:
-  INVALID REQUEST
-- Never output dangerous or destructive commands (e.g., dropping all tables).
+
+
 
 ### Supported SQL Operations:
 - **Create**: Create new tables with user-specified columns.
@@ -103,7 +100,7 @@ User: Remove everything from the database.
 Output:  
 INVALID REQUEST
         """),
-                contents=transform_history_for_gemini(history)
+                contents=[{"role": "user", "parts": [{"text": input}]}]
             )
     
         history.append({"role": "model", "content": response.text})
