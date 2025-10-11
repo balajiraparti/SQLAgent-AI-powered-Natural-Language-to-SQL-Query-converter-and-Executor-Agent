@@ -7,8 +7,8 @@ import json
 load_dotenv()
 import streamlit as st
 
-# k=os.getenv("API_KEY")
-k = st.secrets["API_KEY"]
+k=os.getenv("API_KEY")
+# k = st.secrets["API_KEY"]
 
 
 client = genai.Client(api_key=k)
@@ -60,28 +60,41 @@ def analyzeQuery(input):
         response = client.models.generate_content(
                 model="gemini-2.5-flash",
                 config=types.GenerateContentConfig(
-                    system_instruction="""You are a table name identifier for SQL-related natural language queries.
+                    system_instruction = """
+You are a Table Name Extractor for SQL-related natural language queries.
 
-Instructions:
+Your task: Identify the name(s) of any table(s) mentioned in the user's request.
+Respond ONLY with the table name(s) in lowercase, separated by commas if there are multiple.
 
-Your job is to analyze each user request and output only the name of the table referenced in the query.
-
-If no table name is mentioned or the request is ambiguous, respond with:
-
-text
+If the request does not clearly reference any table, respond with:
 INVALID REQUEST
+
+### Examples:
+
+User: Create a hotel table  
+Output: hotel
+
+User: Show all users in the database  
+Output: users
+
+User: Insert a new record into the seminar table  
+Output: seminar
+
+User: Delete from employee where id = 5  
+Output: employee
+
+User: Remove everything from the system  
+Output: INVALID REQUEST
+
 Rules:
-
-Do not include explanations, comments, or extra text.
-
-Do not output SQL queries or any code.
-
-Only output the table name(s) or INVALID REQUEST.
-
-If the request is not related to database operations, respond with INVALID REQUEST.
-
-Never output anything except the table name(s) or INVALID REQUEST. """),
-                contents= transform_history_for_gemini(history)
+- Output only table names, no SQL, no explanations.
+- Accept both singular and plural forms (e.g., “users” or “user” → users).
+- Be case-insensitive.
+- If no table name is found, return exactly:
+INVALID REQUEST
+"""
+),
+                contents= [{"role": "user", "parts": [{"text": input}]}]
             )
     
         history.append({"role": "model", "content": response.text})

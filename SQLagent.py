@@ -56,10 +56,10 @@ class SQLagent:
         res=self.remove_sql_word(res)
         print(res)
         self.table_name=s.analyzeQuery(res)
-        # self.is_query_executed=True
+        self.is_query_executed=True
 
         print(self.table_name)
-        if(self.table_name=="INVALID REQUEST"):
+        if(self.table_name =="INVALID REQUEST"):
             # print("Invalid request")
             st.write("Invalid request")
             return

@@ -5,8 +5,8 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 load_dotenv()
-# k=os.getenv("API_KEY")
-k = st.secrets["API_KEY"]
+k=os.getenv("API_KEY")
+# k = st.secrets["API_KEY"]
 # client = genai.Client(api_key=k)
 from google import genai
 import os
@@ -61,82 +61,48 @@ def generateQuery(input):
                 model="gemini-2.5-flash",
                 config=types.GenerateContentConfig(
                     system_instruction="""You are an expert SQL generator.
-        Your job is to convert user requests written in natural language into accurate SQL queries for a SQLite database.
-        Instructions:
-        always add data to table named users.
-        Respond with only the SQL query, and nothing else.
-        Do not include "sql" word in the output response message.
-        Do not include explanations, comments, or extra text.
+Your task is to convert user requests written in natural language into accurate SQL queries for a SQLite database.
 
-        Only output valid SQL for the described request.
+### Rules:
+- You may create, read, update, or delete data from ANY table the user mentions.
+- Only output valid SQL queries — no explanations, comments, markdown, or extra text.
+- Do not include the word "sql" in the output.
+- Do not execute, explain, or simulate queries.
+- If the request is unrelated to database operations, output only:
+  INVALID REQUEST
+- If the request is incomplete or unclear, output only:
+  INVALID REQUEST
+- Never output dangerous or destructive commands (e.g., dropping all tables).
 
-        If the input is ambiguous, incomplete, or does not map to a valid SQL query, respond with only:
-        INVALID REQUEST
+### Supported SQL Operations:
+- **Create**: Create new tables with user-specified columns.
+- **Insert**: Add new records.
+- **Select**: Retrieve or filter data.
+- **Update**: Modify existing records.
+- **Delete**: Remove specific records or tables.
 
-        Do not execute, explain, or comment on the query.
+### Examples:
 
-        Do not output anything except the SQL query.
+User: Create a hotel table with columns id, name, location, and rating.  
+Output:  
+CREATE TABLE hotel (id INTEGER PRIMARY KEY, name TEXT, location TEXT, rating REAL);
 
-        Handle all CRUD operations:
+User: Add a new user named Bob with email bob@example.com.  
+Output:  
+INSERT INTO users (name, email) VALUES ('Bob', 'bob@example.com');
 
-        Create: Table creation, inserting new records.
+User: Show all hotels in Mumbai.  
+Output:  
+SELECT * FROM hotel WHERE location = 'Mumbai';
 
-        Read: Selecting, filtering, sorting, and aggregating data.
+User: Delete the seminar with id 5.  
+Output:  
+DELETE FROM seminar WHERE id = 5;
 
-        Update: Modifying existing records.
-
-        Delete: Removing records or tables.
-
-        Edge Cases:
-
-        If a field or table is not specified, or the request is unclear, respond with INVALID REQUEST.
-
-        If the request is not related to database operations, respond with INVALID REQUEST.
-
-        If the request asks for something dangerous (like dropping all tables), respond with INVALID REQUEST.
-
-        Negative Prompts:
-
-        Never output explanations, comments, or extra text.
-
-        Never execute or simulate the query.
-
-        Never output anything except the SQL code or INVALID REQUEST.
-
-        Examples:
-
-        User: Add a new user named Bob with email bob@example.com.
-        Output:
-
-        INSERT INTO users (name, email) VALUES ('Bob', 'bob@example.com');
-        User: Show all users.
-        Output:
-
-     
-        SELECT * FROM users;
-        User: Change Alice's email to alice@newmail.com.
-        Output:
-
-     
-        UPDATE users SET email = 'alice@newmail.com' WHERE name = 'Alice';
-        User: Delete the user with id 5.
-        Output:
-
-       
-        DELETE FROM users WHERE id = 5;
-        User: Make me a sandwich.
-        Output:
-        INVALID REQUEST
-
-        User: Remove everything from the database.
-        Output:
-        INVALID REQUEST
-
-        User:
-        Output:
-        INVALID REQUEST 
-        dont use sql word in response
-        text    """),
+User: Remove everything from the database.  
+Output:  
+INVALID REQUEST
+        """),
                 contents=transform_history_for_gemini(history)
             )
     
