@@ -1,5 +1,5 @@
 from google import genai
-import asyncio
+
 from google.genai import types
 import os
 from dotenv import load_dotenv
@@ -7,15 +7,9 @@ import streamlit as st
 load_dotenv()
 # k=os.getenv("API_KEY")
 k = st.secrets["API_KEY"]
-# client = genai.Client(api_key=k)
-from google import genai
-import os
-from dotenv import load_dotenv
+
 import json
 
-# load_dotenv()
-# k = "API_KEY"
-# k = os.getenv("API_KEY")
 
 HISTORY_FILE = "chat_history.json"
 
