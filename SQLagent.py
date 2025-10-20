@@ -250,8 +250,8 @@ def main():
     config=config,
 )
             tool_call = response.candidates[0].content.parts[0].function_call
-            print(tool_call)
-            if tool_call.args == 0:
+
+            if tool_call == None:
                 st.write("Invalid request")
             elif tool_call.name == "execute_query":
                 sqlagent.execute_query(**tool_call.args)
