@@ -145,7 +145,7 @@ class SQLagent:
                 st.write("Query excuted successfully")
         except Exception as e:
             # print("wrong query,please try again:", e)
-            st.write("wrong query,please try again!")
+            st.write("table might be existed or wrong query,please try again!")
    
 
 
@@ -187,7 +187,7 @@ class SQLagent:
         # # print(self.table_name)
         # self.table_name=st.text_input("Enter Table name:")
         if( not self.o.table_exists(table_name)):
-            st.write("not table found")
+            st.write("table not found")
             return
         print(self.o.display_tables())
         # if(self.is_query_executed==False):
