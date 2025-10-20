@@ -250,11 +250,13 @@ def main():
     config=config,
 )
             tool_call = response.candidates[0].content.parts[0].function_call
-
-            if tool_call.name == "execute_query":
+            if tool_call.name == None:
+                st.write("Invalid request")
+            elif tool_call.name == "execute_query":
                 sqlagent.execute_query(**tool_call.args)
-            if tool_call.name == "display_users":
+            elif tool_call.name == "display_users":
                 sqlagent.display_users(**tool_call.args)
+            
                 
             # if st.button("Execute query"):
             #     sqlagent.execute_query()
